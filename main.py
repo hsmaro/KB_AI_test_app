@@ -163,7 +163,7 @@ def rec_list(news_title, news_content):
     ## 기사 출력
     #st.title("News")
     st.write(f"### {news_title}")
-    news_txt = textwrap.fill(news_content, width=35)
+    news_txt = textwrap.fill(news_content, width=30)
     st.text(news_txt)
 
 ## show_predict_page
