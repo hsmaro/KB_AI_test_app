@@ -58,7 +58,7 @@ def qa():
     st.session_state.qa_label = qa_label
     st.session_state.qa_context = qa_context
 
-    qa_txt = textwrap.fill(st.session_state.qa_quiz, width=35) # 최대 35자로 길이 제한
+    qa_txt = textwrap.fill(st.session_state.qa_quiz, width=30) # 최대 35자로 길이 제한
     st.session_state.qa_txt = qa_txt
 
 ## question_check
@@ -189,13 +189,16 @@ def show_predict_page():
             st.session_state.user_ans = user_ans
             ## 정답 여부 판별
             check(st.session_state.qa_ans, st.session_state.user_ans)
-            col1, col2 = st.columns(2)  # 화면을 두 개의 열로 분할
-            with col1:
-                st.image(st.session_state.img, width=200)  # 이미지 표시
+            st.image(st.session_state.img) # width=200
+            st.write("#### 해설")
+            st.write(st.session_state.qa_context)
+            #col1, col2 = st.columns(2)  # 화면을 두 개의 열로 분할
+            #with col1:
+            #    st.image(st.session_state.img, width=200)  # 이미지 표시
 
-            with col2:
-                st.write("#### 해설")
-                st.write(st.session_state.qa_context)  # 설명 표시 
+            #with col2:
+            #    st.write("#### 해설")
+            #    st.write(st.session_state.qa_context)  # 설명 표시 
         
     if hasattr(st.session_state, 'user_ans') and not hasattr(st.session_state, 'rec_label'):
         ## user 업데이트
