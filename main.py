@@ -194,6 +194,7 @@ def rec_list(news_title, news_content):
 
 ## show_predict_page
 def show_predict_page():
+    st.set_page_config(initial_sidebar_state="auto")
     if not hasattr(st.session_state, 'user_id'):
         user_pick() # 일단 user_id만 사용
     
