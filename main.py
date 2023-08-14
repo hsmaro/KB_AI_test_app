@@ -195,7 +195,16 @@ def rec_list(news_title, news_content):
 ## show_predict_page
 def show_predict_page():
     st.set_page_config(initial_sidebar_state='expanded')
-    #st.set_page_config(initial_sidebar_state="auto")
+    st.markdown(
+        """
+       <style>
+       [data-testid="stSidebar"][aria-expanded="true"]{
+           min-width: 200px;
+           max-width: 200px;
+       }
+       """,
+        unsafe_allow_html=True,
+    )
     if not hasattr(st.session_state, 'user_id'):
         user_pick() # 일단 user_id만 사용
     
