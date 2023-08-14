@@ -244,7 +244,7 @@ def show_predict_page():
     
     if hasattr(st.session_state, 'rec_label') and hasattr(st.session_state, 'user_ans'):
     ## title 5개 출력
-        st.sidebar.title(st.session_state.rec_label)
+        st.sidebar.title(f"추천 카테고리: {st.session_state.rec_label}")
         for idx, news_title in enumerate(st.session_state.news_titles):
             unique_key = f"sidebar_button_{idx}"
             if st.sidebar.button(news_title, key=unique_key):
