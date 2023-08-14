@@ -158,7 +158,7 @@ def update_user_db(label, ox, idx):
     split_user_db.to_csv(os.path.join(data_path, "split_db_v4.csv"), encoding="utf-8", index=False) #   "hs_split_db_v2.csv"
     
     return user_db
-        
+'''        
 def see_graph(user_db):
      u_df = user_db.iloc[st.session_state.idx:st.session_state.idx+1, 5:11].T.reset_index() # 5:11 -> 금융, 증권 ,부동산, 글로벌경제, 생활경제, 일반경제
      u_df.columns=["label", "정답률"]
@@ -182,6 +182,7 @@ def see_matplotlib(user_db):
         ax.text(bar.get_x() + bar.get_width() / 2, height, f"{height:.2f}%", ha="center", va="bottom", fontproperties=fontprop)
     
     st.pyplot(fig)
+'''
 
 def rec_list(news_title, news_content):
     
@@ -243,7 +244,7 @@ def show_predict_page():
     
     if hasattr(st.session_state, 'rec_label') and hasattr(st.session_state, 'user_ans'):
     ## title 5개 출력
-        #st.sidebar.title("News")
+        st.sidebar.title(st.session_state.rec_label)
         for idx, news_title in enumerate(st.session_state.news_titles):
             unique_key = f"sidebar_button_{idx}"
             if st.sidebar.button(news_title, key=unique_key):
