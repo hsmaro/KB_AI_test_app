@@ -234,13 +234,13 @@ def show_predict_page():
         
         #see_graph(user_db)
         #see_matplotlib(user_db)
-        
-        rec_label, news_titles, news_contents = news_rec(os.path.join(data_path, "split_db_v4.csv"), #        "hs_split_db_v2.csv"
-                                                            os.path.join(data_path, "split_db_v4.csv"), #        "hs_split_db_v2.csv"
-                                                            os.path.join(data_path, "rating_v4.csv"), #       "hs_rating_v2.csv"
-                                                            st.session_state.user_id)
-        st.session_state.news_titles = news_titles
-        st.session_state.news_contents = news_contents
+        with st.spinner('뉴스를 추천 중입니다...'):
+            rec_label, news_titles, news_contents = news_rec(os.path.join(data_path, "split_db_v4.csv"), #        "hs_split_db_v2.csv"
+                                                                os.path.join(data_path, "split_db_v4.csv"), #        "hs_split_db_v2.csv"
+                                                                os.path.join(data_path, "rating_v4.csv"), #       "hs_rating_v2.csv"
+                                                                st.session_state.user_id)
+            st.session_state.news_titles = news_titles
+            st.session_state.news_contents = news_contents
     
     if hasattr(st.session_state, 'rec_label') and hasattr(st.session_state, 'user_ans'):
     ## title 5개 출력
